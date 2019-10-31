@@ -1,0 +1,1 @@
+Start /b /d "C:\Program Files\Mozilla Firefox\" firefox.exe -private-window

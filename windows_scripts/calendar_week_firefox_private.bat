@@ -1,0 +1,1 @@
+start /B firefox -private-window http://whatweekisit.org/
