@@ -45,7 +45,7 @@ def retrieveDrones():
 		keyboard.press('r')
 		time.sleep(0.3)
 		keyboard.release('r')
-		time.sleep(10)
+		time.sleep(20)
 
 def stopMinerActivity():
 	print("Stopping miner activity")
@@ -69,13 +69,13 @@ def activateAutoPilot():
 		time.sleep(0.2)
 		keyboard.release('s')
 
-timeoutValue = 3 * 60.0#2 minutes
+timeoutValue = 3 * 60.0#X minutes
 		
 while(True):
 	idleTime = getIdleTime()
 	print("running, idle time is " + str(idleTime) + " seconds")
 	if (idleTime > timeoutValue):
-		getWindowFocus()
+		#getWindowFocus()
 		retrieveDrones()
 		stopMinerActivity()
 		activateAutoPilot()
