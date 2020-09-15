@@ -47,7 +47,7 @@ def retrieveDrones():
 		keyboard.release('r')
 		time.sleep(20)
 
-def stopMinerActivity():
+def stopShipActivity():
 	print("Stopping miner activity")
 	keyboard = KeyboardController()
 	keyboard.press(Key.f1)
@@ -57,6 +57,30 @@ def stopMinerActivity():
 	keyboard.press(Key.f2)
 	time.sleep(0.3)
 	keyboard.release(Key.f2)
+	time.sleep(1)
+	keyboard.press(Key.f3)
+	time.sleep(0.3)
+	keyboard.release(Key.f3)
+	time.sleep(1)
+	keyboard.press(Key.f4)
+	time.sleep(0.3)
+	keyboard.release(Key.f4)
+	time.sleep(1)
+	keyboard.press(Key.f5)
+	time.sleep(0.3)
+	keyboard.release(Key.f5)
+	time.sleep(1)
+	keyboard.press(Key.f6)
+	time.sleep(0.3)
+	keyboard.release(Key.f6)
+	time.sleep(1)
+	keyboard.press(Key.f7)
+	time.sleep(0.3)
+	keyboard.release(Key.f7)
+	time.sleep(1)
+	keyboard.press(Key.f8)
+	time.sleep(0.3)
+	keyboard.release(Key.f8)
 	time.sleep(1)
 
 def activateAutoPilot():
@@ -69,15 +93,17 @@ def activateAutoPilot():
 		time.sleep(0.2)
 		keyboard.release('s')
 
-timeoutValue = 3 * 60.0#X minutes
+timeoutValue = 60 * 60.0#X minutes
 		
 while(True):
 	idleTime = getIdleTime()
 	print("running, idle time is " + str(idleTime) + " seconds")
 	if (idleTime > timeoutValue):
+		stopShipActivity()
 		#getWindowFocus()
 		retrieveDrones()
-		stopMinerActivity()
+		#wait for agression timer to expire
+		time.sleep(60)
 		activateAutoPilot()
 		break
 	time.sleep(5)
