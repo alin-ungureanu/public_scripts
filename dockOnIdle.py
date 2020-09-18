@@ -93,11 +93,14 @@ def activateAutoPilot():
 		time.sleep(0.2)
 		keyboard.release('s')
 
-timeoutValue = 60 * 60.0#X minutes
+timeoutValue = 15 * 60.0#15 minutes
+if (len(sys.argv) > 1):
+	timeoutValue = int(sys.argv[1]) * 60.0#X minutes
+
 		
 while(True):
 	idleTime = getIdleTime()
-	print("running, idle time is " + str(idleTime) + " seconds")
+	print("running, idle for " + str(idleTime) + "s, less than " + str(timeoutValue - idleTime) + "s remaining")
 	if (idleTime > timeoutValue):
 		stopShipActivity()
 		#getWindowFocus()
