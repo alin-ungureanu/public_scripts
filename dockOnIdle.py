@@ -45,7 +45,8 @@ def retrieveDrones():
 		keyboard.press('r')
 		time.sleep(0.3)
 		keyboard.release('r')
-		time.sleep(20)
+		#waiting 1 min for drones to come back
+		time.sleep(60)
 
 def stopShipActivity():
 	print("Stopping miner activity")
@@ -53,35 +54,35 @@ def stopShipActivity():
 	keyboard.press(Key.f1)
 	time.sleep(0.3)
 	keyboard.release(Key.f1)
-	time.sleep(1)
+	time.sleep(0.5)
 	keyboard.press(Key.f2)
 	time.sleep(0.3)
 	keyboard.release(Key.f2)
-	time.sleep(1)
+	time.sleep(0.5)
 	keyboard.press(Key.f3)
 	time.sleep(0.3)
 	keyboard.release(Key.f3)
-	time.sleep(1)
+	time.sleep(0.5)
 	keyboard.press(Key.f4)
 	time.sleep(0.3)
 	keyboard.release(Key.f4)
-	time.sleep(1)
+	time.sleep(0.5)
 	keyboard.press(Key.f5)
 	time.sleep(0.3)
 	keyboard.release(Key.f5)
-	time.sleep(1)
+	time.sleep(0.5)
 	keyboard.press(Key.f6)
 	time.sleep(0.3)
 	keyboard.release(Key.f6)
-	time.sleep(1)
+	time.sleep(0.5)
 	keyboard.press(Key.f7)
 	time.sleep(0.3)
 	keyboard.release(Key.f7)
-	time.sleep(1)
+	time.sleep(0.5)
 	keyboard.press(Key.f8)
 	time.sleep(0.3)
 	keyboard.release(Key.f8)
-	time.sleep(1)
+	time.sleep(0.5)
 
 def activateAutoPilot():
 	
@@ -105,8 +106,7 @@ while(True):
 		stopShipActivity()
 		#getWindowFocus()
 		retrieveDrones()
-		#wait for agression timer to expire
-		time.sleep(60)
+		#industrial command ship agression timer will expire because autopilot warps within 10km of the station
 		activateAutoPilot()
 		break
 	time.sleep(5)
