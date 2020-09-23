@@ -48,7 +48,7 @@ def retrieveDrones():
 		#waiting 1 min for drones to come back
 		time.sleep(60)
 
-def stopShipActivity():
+def stopTurretActivity():
 	print("Stopping miner activity")
 	keyboard = KeyboardController()
 	keyboard.press(Key.f1)
@@ -95,15 +95,20 @@ def activateAutoPilot():
 		keyboard.release('s')
 
 timeoutValue = 15 * 60.0#15 minutes
+turretShutdown = False
 if (len(sys.argv) > 1):
 	timeoutValue = int(sys.argv[1]) * 60.0#X minutes
+if (len(sys.argv) > 2):
+	if (sys.argv[2] == 'y'):
+		turretShutdown = True
 
 		
 while(True):
 	idleTime = getIdleTime()
 	print("running, idle for " + str(idleTime) + "s, less than " + str(timeoutValue - idleTime) + "s remaining")
 	if (idleTime > timeoutValue):
-		stopShipActivity()
+		if (turretShutdown):
+			stopTurretActivity()
 		#getWindowFocus()
 		retrieveDrones()
 		#industrial command ship agression timer will expire because autopilot warps within 10km of the station

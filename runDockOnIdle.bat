@@ -1,2 +1,3 @@
 set /P minutes=Enter minutes: 
-python3 dockOnIdle.py %minutes%
+set /P turret_shutdown=Turret Shutdown? y/n: 
+python3 dockOnIdle.py %minutes% %turret_shutdown%
