@@ -107,10 +107,10 @@ while(True):
 	idleTime = getIdleTime()
 	print("running, idle for " + str(idleTime) + "s, less than " + str(timeoutValue - idleTime) + "s remaining")
 	if (idleTime > timeoutValue):
+        #getWindowFocus()
+		retrieveDrones()
 		if (turretShutdown):
 			stopTurretActivity()
-		#getWindowFocus()
-		retrieveDrones()
 		#industrial command ship agression timer will expire because autopilot warps within 10km of the station
 		activateAutoPilot()
 		break
